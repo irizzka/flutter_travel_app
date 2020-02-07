@@ -5,6 +5,7 @@ import 'package:flutter_travel_app/provider/data.dart';
 import 'package:provider/provider.dart';
 
 class HomeScreen extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,8 +14,7 @@ class HomeScreen extends StatelessWidget {
           image: DecorationImage(
             colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.25), BlendMode.srcOver),
             fit: BoxFit.fill,
-            image: AssetImage(
-              'images/bali.jpg',
+            image: AssetImage( Provider.of<Data>(context).getBackgroundImage(),
             ),
           ),
         ),
@@ -28,7 +28,9 @@ class HomeScreen extends StatelessWidget {
                 children: <Widget>[
                   IconButton(
                     icon: Icon(Icons.arrow_back),
-                    onPressed: () {},
+                    onPressed: () {
+                     // Navigator.pop(context);
+                    },
                   ),
                   IconButton(
                     icon: Icon(Icons.calendar_today),
@@ -42,7 +44,7 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Discover Bali', style: TextStyle(
+                  Text(Provider.of<Data>(context).getTitle(), style: TextStyle(
                     fontFamily: 'HindSiliguri',
                     fontWeight: FontWeight.bold,
                     fontSize: 34.0,
@@ -60,14 +62,25 @@ class HomeScreen extends StatelessWidget {
                       height: 1.1,
                     ),),
                   ),
-                  Icon(Icons.keyboard_arrow_down, size: 30,),
+                  Row(
+                    children: <Widget>[
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Icon(Icons.keyboard_arrow_down, size: 30,),
+                    ],
+                  ),
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10.0),
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                       height: 80,
                       color: Color(0x9A171a17),
-                      child: ImgList(),
+                      child: ImgList(
+                       /* callback: () {
+                          Provider.of<Data>(context).setBackgroundImage(img);
+                        },*/
+                      ),
                     ),
                   ),
                   Container(
@@ -76,10 +89,13 @@ class HomeScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         FlatButton(
-                          child: Text('More',textAlign: TextAlign.start,),
+                          child: Text('More',textAlign: TextAlign.start,style: TextStyle(
+                            color: Colors.white,
+                          ),),
                           onPressed: () {
 
                           },
+
                         ),
                         IconButton(
                           icon: Icon(Icons.arrow_forward),
