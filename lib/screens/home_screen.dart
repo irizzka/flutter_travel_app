@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_travel_app/screens/calendar_screen.dart';
 import 'package:flutter_travel_app/widgets/img_list.dart';
 import 'package:flutter_travel_app/provider/data.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,9 @@ class HomeScreen extends StatelessWidget {
                   ),
                   IconButton(
                     icon: Icon(Icons.calendar_today),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => CalendarScreen()));
+                    },
                   )
                 ],
               ),
@@ -112,16 +115,6 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      /*floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          Provider.of<Data>(context).incrementCounter();
-        },
-      ),*/
     );
   }
 }
-
-/*Container(
-child: Text('value ${Provider.of<Data>(context).getCounter()}'),
-),*/

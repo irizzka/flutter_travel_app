@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_travel_app/models/card_model.dart';
 
 class Data extends ChangeNotifier {
@@ -34,4 +35,5 @@ class Data extends ChangeNotifier {
   String getBackgroundImage(){
     return _cardModel.imgLink.toString() ?? CardModel.cardList.first.imgLink;
   }
+
 }

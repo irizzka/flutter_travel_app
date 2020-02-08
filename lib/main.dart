@@ -9,7 +9,9 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return ChangeNotifierProvider<Data>(
+        builder: (BuildContext context) => Data(),
+      child: MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -17,9 +19,7 @@ class MyApp extends StatelessWidget {
           color: Colors.white,
         ),
       ),
-      home: ChangeNotifierProvider<Data>(
-        builder: (BuildContext context) => Data(),
-        child: HomeScreen(),
+      home: HomeScreen(),
       ),
     );
   }
