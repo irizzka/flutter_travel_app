@@ -50,14 +50,14 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 10.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
-                  IconButton(
+                 /* IconButton(
                     icon: Icon(Icons.arrow_back),
                     onPressed: () {
                      // Navigator.pop(context);
                     },
-                  ),
+                  ),*/
                   IconButton(
                     icon: Icon(Icons.calendar_today),
                     onPressed: () {
@@ -89,7 +89,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    height: 70,
+                    height: 50,
                     width: 300,
                     child: Text('The mere mention of Bali evokes thoughts a paradise.',
                     style: TextStyle(

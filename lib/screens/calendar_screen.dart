@@ -10,18 +10,32 @@ class CalendarScreen extends StatelessWidget {
     return ChangeNotifierProvider<Data>(
       child: Scaffold(
         body: Container(
-           decoration: BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
-              colorFilter: ColorFilter.mode(Colors.black.withOpacity(0.65), BlendMode.srcOver),
+              colorFilter: ColorFilter.mode(
+                  Colors.black.withOpacity(0.65), BlendMode.srcOver),
               fit: BoxFit.fill,
-              image: AssetImage( Provider.of<Data>(context).getBackgroundImage(),
+              image: AssetImage(
+                Provider.of<Data>(context).getBackgroundImage(),
               ),
             ),
           ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-
+              Container(
+                padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 10.0),
+                child: Row(
+                  children: <Widget>[
+                    IconButton(
+                      icon: Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    )
+                  ],
+                ),
+              ),
               Text(
                 Provider.of<Data>(context).getTitle(),
                 style: TextStyle(
@@ -32,7 +46,7 @@ class CalendarScreen extends StatelessWidget {
                 ),
               ),
 
-             // Icon(FontAwesomeIcons.stream),
+              // Icon(FontAwesomeIcons.stream),
               Container(
                 color: Colors.white,
                 height: 400,
