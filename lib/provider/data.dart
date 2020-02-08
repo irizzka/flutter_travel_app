@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_travel_app/models/card_model.dart';
 
 class Data extends ChangeNotifier {
-  int _counter = 0;
+  int _counter = _first.count;
   String _backgroundImage;
 
   static CardModel _first = CardModel.cardList.first;
@@ -12,6 +12,7 @@ class Data extends ChangeNotifier {
 
   void setCard(CardModel card){
     _cardModel = card;
+    _counter = card.count;
     notifyListeners();
   }
   String getTitle() {

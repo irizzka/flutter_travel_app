@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart';
 import 'package:flutter_travel_app/provider/data.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
 class CalendarScreen extends StatelessWidget {
@@ -20,6 +21,7 @@ class CalendarScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
+
               Text(
                 Provider.of<Data>(context).getTitle(),
                 style: TextStyle(
@@ -29,6 +31,8 @@ class CalendarScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+
+             // Icon(FontAwesomeIcons.stream),
               Container(
                 color: Colors.white,
                 height: 400,
